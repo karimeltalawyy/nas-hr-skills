@@ -5,7 +5,7 @@ Internal skills for the NAS HRMS project. Installs `task-builder` and `confluenc
 ## Install
 
 ```bash
-npx skills add your-org/nas-hr-skills -g -y
+npx skills add karimeltalawyy/nas-hr-skills -g -y
 ```
 
 ## Skills
