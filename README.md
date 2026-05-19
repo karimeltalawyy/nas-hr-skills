@@ -78,5 +78,6 @@ npx skills update
 
 | Skill | Command | What it does |
 |---|---|---|
+| NAS HR Context | `/nas-hr` | Loads full project context — Performance module, KPI Plans, Payroll, design decisions, and session state |
 | Task Builder | `/task-builder` | Builds structured Jira tasks following the NAS HR schema — user story, screens, modals, acceptance criteria |
 | Confluence Doc | `/confluence-doc` | Converts a Confluence page into Jira Epics / Stories / Tasks |
