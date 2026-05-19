@@ -12,14 +12,16 @@ npx skills add karimeltalawyy/nas-hr-skills -g -y
 
 ### Option 2 — Inside Claude Code (if npx fails)
 
-Run these two commands in any Claude Code session:
+> **Note:** This plugin is not in the official Anthropic marketplace — you won't find it by browsing. You need to add it as a custom source first using the two commands below.
+
+Open Claude Code and run these two commands:
 
 ```
 /plugin marketplace add karimeltalawyy/nas-hr-skills
 /plugin install nas-hr-skills@nas-hr-skills
 ```
 
-> First command registers the repo as a marketplace source. Second installs the skills.
+The first command registers the GitHub repo as a source. The second installs from it.
 
 ### Option 3 — Manual via curl (no Node required)
 
