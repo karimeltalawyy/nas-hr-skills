@@ -19,6 +19,8 @@ Run these two commands in any Claude Code session:
 /plugin install nas-hr-skills@nas-hr-skills
 ```
 
+> First command registers the repo as a marketplace source. Second installs the skills.
+
 ### Option 3 — Manual via curl (no Node required)
 
 **Mac / Linux:**
