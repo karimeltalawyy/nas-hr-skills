@@ -8,7 +8,7 @@ description: Full context loader for the NAS HRMS system — Performance module,
 When this skill is invoked, do the following **in order** without asking the user anything first:
 
 1. Print the static briefing below
-2. Run live health checks
+2. Print the implementation starting point
 3. Print ready state
 4. Wait for user's instruction
 
