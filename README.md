@@ -4,9 +4,50 @@ Internal skills for the NAS HRMS project. Installs `task-builder` and `confluenc
 
 ## Install
 
+### Option 1 — npx (recommended)
+
 ```bash
 npx skills add karimeltalawyy/nas-hr-skills -g -y
 ```
+
+### Option 2 — Inside Claude Code (if npx fails)
+
+Run these two commands in any Claude Code session:
+
+```
+/plugin marketplace add karimeltalawyy/nas-hr-skills
+/plugin install nas-hr-skills@nas-hr-skills
+```
+
+### Option 3 — Manual via curl (no Node required)
+
+```bash
+mkdir -p ~/.claude/skills/task-builder ~/.claude/skills/confluence-doc
+
+curl -L https://raw.githubusercontent.com/karimeltalawyy/nas-hr-skills/main/skills/task-builder/SKILL.md \
+  -o ~/.claude/skills/task-builder/SKILL.md
+
+curl -L https://raw.githubusercontent.com/karimeltalawyy/nas-hr-skills/main/skills/confluence-doc/SKILL.md \
+  -o ~/.claude/skills/confluence-doc/SKILL.md
+```
+
+### Option 4 — Git clone
+
+```bash
+git clone https://github.com/karimeltalawyy/nas-hr-skills.git /tmp/nas-hr-skills
+cp /tmp/nas-hr-skills/skills/task-builder/SKILL.md ~/.claude/skills/task-builder/SKILL.md
+cp /tmp/nas-hr-skills/skills/confluence-doc/SKILL.md ~/.claude/skills/confluence-doc/SKILL.md
+```
+
+---
+
+## Update
+
+```bash
+npx skills update
+```
+
+---
 
 ## Skills
 
@@ -14,9 +55,3 @@ npx skills add karimeltalawyy/nas-hr-skills -g -y
 |---|---|---|
 | Task Builder | `/task-builder` | Builds structured Jira tasks following the NAS HR schema — user story, screens, modals, acceptance criteria |
 | Confluence Doc | `/confluence-doc` | Converts a Confluence page into Jira Epics / Stories / Tasks |
-
-## Update
-
-```bash
-npx skills update
-```
