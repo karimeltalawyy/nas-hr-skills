@@ -370,59 +370,96 @@ Reference: Teamflect question-set model (confirmed by user as the right approach
 
 ---
 
-## 2. Live Health Checks
+## 2. Implementation Starting Point
 
-Run these and show results:
+Print this section exactly as-is. No commands to run.
 
-```bash
-# 1. Project exists and feature count
-ls "/Users/krim/Downloads/HR-front-end-Development 2/src/app/newTheme/features/" 2>/dev/null
-
-# 2. Performance module component count
-find "/Users/krim/Downloads/HR-front-end-Development 2/src/app/newTheme/features/manage-performance" -name "*.component.ts" | wc -l 2>/dev/null
-
-# 3. KPI module component count
-find "/Users/krim/Downloads/HR-front-end-Development 2/src/app/newTheme/features/manage-kpi-plans" -name "*.component.ts" | wc -l 2>/dev/null
-
-# 4. Peer-to-peer module (if started)
-find "/Users/krim/Downloads/HR-front-end-Development 2/src/app/newTheme/features" -name "*recognition*" -o -name "*badge*" -o -name "*endorsement*" 2>/dev/null | wc -l
-
-# 5. Last 3 commits
-git -C "/Users/krim/Downloads/HR-front-end-Development 2" log --oneline -3 2>/dev/null
-
-# 6. Existing performance specs
-find "/Users/krim/Downloads/HR-front-end-Development 2/docs/superpowers/specs" -name "*performance*" 2>/dev/null
-```
-
-Display like this:
+---
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-HR Performance Module — Health Check
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Project:              ✅ Found / ❌ Missing
-Appraisal components: X files
-KPI components:       X files
-Peer-to-peer files:   X files (0 = not started yet)
-Last commits:
-  <hash> <message>
-  ...
-Existing specs:       <file names>
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NAS HR — Current Implementation State
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BUILT ✅
+  Angular Dashboard
+  ├── manage-performance/     → Appraisal (19 components)
+  ├── manage-kpi-plans/       → KPI Plans (8 components)
+  └── payroll-v3/             → Payroll engine
+
+  Rewards
+  ├── Tier 2 — Manager bonus       ✅ built
+  └── Tier 3 — Monetary + approval ✅ built
+
+DESIGNED — READY TO BUILD 🔴
+  Rewards Tier 1 — Peer-to-Peer Badges
+  └── Angular Dashboard
+      ├── Badge Types management (list + create/edit modal)
+      ├── Recognition Settings (global config)
+      ├── Recognition Wall moderation (HR view)
+      └── Analytics
+
+  360-Degree Feedback
+  └── Angular Dashboard
+      ├── Template upgrades (rater types + question visibilityType)
+      ├── Appraisal Run upgrades (weights + deadlines)
+      └── Collection monitoring screen
+
+MOBILE SCREENS (Native app — design in Figma)
+  Peer-to-Peer Badges
+  ├── Recognition Wall ✅ designed (node 5061-30534)
+  │   ├── Tab 1: All Peer Recognitions (feed)
+  │   └── Tab 2: My Details (personal stats)
+  ├── Send Endorsement — 3-step bottom sheet ✅ designed
+  ├── Regular endorsement post card ⏸ not yet designed
+  ├── My Details tab ⏸ not yet designed
+  └── Empty states ⏸ not yet designed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHAT TO BUILD NEXT (Phase 1 priority order)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Angular: manage-recognition/ module
+     Follow manage-kpi-plans/ pattern exactly:
+     models/ → services/ → components/ → popups/
+
+     Start with:
+     models/badge-type.interface.ts
+     models/recognition-settings.interface.ts
+     models/endorsement.interface.ts
+     services/badge-type.service.ts
+     services/recognition.service.ts
+     components/badge-catalog/   (list + create/edit)
+     components/recognition-settings/
+     components/recognition-wall/  (HR moderation view)
+
+  2. Angular: 360-Degree Feedback upgrades
+     Modify existing manage-performance/ — do NOT create new module
+     Touch: appraisal-template + question-set + appraisal-run components
+
+  3. Mobile Figma: remaining peer-to-peer screens
+     Regular endorsement post card → My Details tab → Empty states
+     Figma file: https://www.figma.com/design/Zf77LBcrb9Bt61ICdjUZGN/NAS-HR-Dashboard
+     Page: 🥅 Performance
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEY PATTERNS TO FOLLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Angular module structure  → copy manage-kpi-plans/
+  Design system             → NAS design system, PrimeNG, color #0c2427
+  List views                → PrimeNG p-table, lazy load, filter toolbar
+  Modals/popups             → popups/ subfolder, DynamicDialog
+  Services                  → HttpClient + localStorage fallback (POC mode)
+  Models                    → interfaces only, no classes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ---
 
 ## 3. Ready State
 
-After the health check, say:
+Say exactly:
 
-> **HR Performance ready.** Peer-to-peer badges are fully designed (data model done for all 3 roles). Next up: 360-Degree Feedback design, or jump straight to building peer-to-peer. What do you want to work on?
-
-You are now ready to:
-- Continue the 360-Degree Feedback design session
-- Build the peer-to-peer badges Angular module (follow existing `manage-kpi-plans/` pattern: `models/` → `services/` → `components/` → `popups/`)
-- Design any other planned module (Calibration, PIP, Succession, Competency)
-- Integrate with existing Appraisal or KPI Plans code
-
-Go directly to the right file without asking for context.
+> **NAS HR ready.** Phase 1 scope is locked: Peer-to-Peer Badges + 360-Degree Feedback. Full data models, design decisions, and mobile screens are in the briefing above. Jump straight to implementation — what are you working on?
