@@ -107,17 +107,30 @@ The progress counter is **never shown in the social feed**. The feed shows indiv
 
 #### Performance Score Integration
 
-Only **officially earned badges** count toward the Recognition Score — not raw endorsement counts.
+Every endorsement received counts toward the Recognition Score — not just earned badges. Earning a badge is a social achievement (profile pin, wall post, notification) separate from scoring.
 
 ```
-Recognition Score = Σ (earned badge weight × badges earned)
-                   normalized against department average
+Points per badge type = endorsements received × badge weight
+
+Example:
+  30 endorsements for Team Player (weight 6)    = 180 pts
+  20 endorsements for Super Growth (weight 12)  = 240 pts
+  Total points                                  = 420 pts
+
+Recognition Score = (total points / maxRecognitionPoints) × 10%
+  e.g. (420 / 500) × 10% = 8.4% of overall score
 
 Overall Performance Score (HR sets weights):
   Appraisal Score     50%
   KPI Achievement     40%
   Recognition Score   10%   ← peer-to-peer feeds here
 ```
+
+**Key rules:**
+- Collecting points WITHOUT earning any badge is normal and valid
+- Earning a badge does NOT add bonus points or multipliers — separate social milestone only
+- No retroactive multipliers of any kind
+- `maxRecognitionPoints` is configured by HR in RecognitionSettings
 
 ---
 
@@ -137,8 +150,9 @@ Overall Performance Score (HR sets weights):
 **Entity 2: RecognitionSettings** (one global record)
 | Field | Type | Notes |
 |---|---|---|
-| `minDepartmentsRequired` | number | HR sets — minimum number of departments that must contribute endorsements (no system default) |
-| `monthlyEndorsementLimit` | number | HR sets — maximum endorsements an employee can send per calendar month (no system default) |
+| `minDepartmentsRequired` | number | HR sets — minimum departments that must contribute endorsements to earn a badge |
+| `monthlyEndorsementLimit` | number | HR sets — maximum endorsements an employee can send per calendar month |
+| `maxRecognitionPoints` | number | HR sets — points ceiling for full 10% score. Formula: (total pts / max pts) × 10% |
 | `earnedBadgeWeightInScore` | number % | Default 10% of overall performance |
 | `announceOnEarn` | boolean | Company-wide post on badge earn |
 | `featureEnabled` | boolean | On/Off switch |
