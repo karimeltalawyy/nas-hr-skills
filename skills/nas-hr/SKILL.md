@@ -110,15 +110,15 @@ The progress counter is **never shown in the social feed**. The feed shows indiv
 Every endorsement received counts toward the Recognition Score — not just earned badges. Earning a badge is a social achievement (profile pin, wall post, notification) separate from scoring.
 
 ```
-Points per badge type = endorsements received × badge weight
+1 endorsement received = 1 point (simple, no multipliers)
 
 Example:
-  30 endorsements for Team Player (weight 6)    = 180 pts
-  20 endorsements for Super Growth (weight 12)  = 240 pts
-  Total points                                  = 420 pts
+  50 endorsements for Team Player   = 50 pts
+  30 endorsements for Super Growth  = 30 pts
+  Total points                      = 80 pts
 
 Recognition Score = (total points / maxRecognitionPoints) × 10%
-  e.g. (420 / 500) × 10% = 8.4% of overall score
+  e.g. (80 / 500) × 10% = 1.6% of overall score
 
 Overall Performance Score (HR sets weights):
   Appraisal Score     50%
@@ -127,9 +127,11 @@ Overall Performance Score (HR sets weights):
 ```
 
 **Key rules:**
+- 1 endorsement = 1 point, regardless of badge type or weight
+- Badge weight (1–10) is for HR catalog ranking/display only — NOT a points multiplier
 - Collecting points WITHOUT earning any badge is normal and valid
-- Earning a badge does NOT add bonus points or multipliers — separate social milestone only
-- No retroactive multipliers of any kind
+- Earning a badge does NOT add bonus points — social milestone only (profile pin, wall post, notification)
+- No multipliers of any kind
 - `maxRecognitionPoints` is configured by HR in RecognitionSettings
 
 ---
