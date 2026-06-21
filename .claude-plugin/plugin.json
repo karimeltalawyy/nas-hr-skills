@@ -1,0 +1,18 @@
+{
+  "name": "nas-hr-skills",
+  "description": "Task builder, Confluence doc importer, and performance module context for NAS HRMS",
+  "version": "1.0.0",
+  "author": {
+    "name": "Karim El Talawy"
+  },
+  "homepage": "https://github.com/karimeltalawyy/nas-hr-skills",
+  "repository": "https://github.com/karimeltalawyy/nas-hr-skills",
+  "license": "MIT",
+  "keywords": [
+    "nas-hr",
+    "hrms",
+    "jira",
+    "confluence",
+    "task-builder"
+  ]
+}
