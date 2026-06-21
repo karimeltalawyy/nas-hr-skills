@@ -1,5 +1,5 @@
 ---
-name: confluence-doc
+name: nas-hr:confluence-doc
 description: Converts NAS HR Confluence documentation into Jira issues. Takes a Confluence page URL or uses the current conversation context, parses it into Epics / Stories / Tasks, shows the proposed breakdown for confirmation, then creates the issues in Jira. NAS HR context (cloud ID, known pages, skip rules) is built in.
 ---
 

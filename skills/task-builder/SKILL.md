@@ -1,5 +1,5 @@
 ---
-name: task-builder
+name: nas-hr:task-builder
 description: Builds structured Jira tasks for the NAS HR system following the standard schema — user story summary, background with Figma reference, screen column tables, status enums, modals, and numbered acceptance criteria. Use whenever creating a new feature task for any NAS HR module.
 ---
 
